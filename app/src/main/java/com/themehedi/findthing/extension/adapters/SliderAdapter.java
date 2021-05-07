@@ -19,7 +19,6 @@ public class SliderAdapter extends
         SliderViewAdapter<SliderAdapter.SliderAdapterVH> {
 
     private Context context;
-    private String BaseUrl = "http://aleshamartweb.aleshatechdev.com/uploads/banner/webp/";
 
     public SliderAdapter(Context context) {
         this.context = context;
@@ -53,8 +52,7 @@ public class SliderAdapter extends
 
         Glide.with(viewHolder.itemView)
                 .load("").apply(new RequestOptions()
-                .error(R.drawable.cover))
-                .fitCenter()
+                .error(R.drawable.promo_banner))
                 .into(viewHolder.imageViewBackground);
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
