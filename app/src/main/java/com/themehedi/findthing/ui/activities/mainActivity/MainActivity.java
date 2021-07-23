@@ -1,4 +1,4 @@
-package com.themehedi.findthing.ui.activities;
+package com.themehedi.findthing.ui.activities.mainActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

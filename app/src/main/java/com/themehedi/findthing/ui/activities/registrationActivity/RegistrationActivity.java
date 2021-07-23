@@ -1,4 +1,4 @@
-package com.themehedi.findthing.ui.activities;
+package com.themehedi.findthing.ui.activities.registrationActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.themehedi.findthing.R;
+import com.themehedi.findthing.ui.activities.loginActivity.view.LoginActivity;
+import com.themehedi.findthing.ui.activities.mainActivity.MainActivity;
 
 public class RegistrationActivity extends AppCompatActivity {
 

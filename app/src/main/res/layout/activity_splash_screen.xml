@@ -8,7 +8,7 @@
     android:gravity="center"
     android:layout_gravity="center"
     android:orientation="vertical"
-    tools:context=".ui.activities.WelcomeActivity">
+    tools:context=".ui.activities.splashScreenActivity.SplashScreenActivity">
 
     <ImageView
         android:layout_width="230dp"

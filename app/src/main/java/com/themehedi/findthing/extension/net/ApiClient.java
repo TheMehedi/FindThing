@@ -2,6 +2,8 @@ package com.themehedi.findthing.extension.net;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.themehedi.findthing.BuildConfig;
+
 import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -9,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
-    private static final String BASE_URL = "https://demo666.xyz/api/";
+    private static final String BASE_URL = BuildConfig.BASE_URL;
     private static Retrofit retrofit = null;
 
     private static final Gson gson = new GsonBuilder()

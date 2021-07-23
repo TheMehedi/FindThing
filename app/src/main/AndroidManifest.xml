@@ -11,16 +11,16 @@
         android:roundIcon="@mipmap/cover"
         android:supportsRtl="true"
         android:theme="@style/Theme.FindThing">
-        <activity android:name=".ui.activities.RegistrationActivity"></activity>
-        <activity android:name=".ui.activities.WelcomeActivity">
+        <activity android:name=".ui.activities.registrationActivity.RegistrationActivity"></activity>
+        <activity android:name=".ui.activities.splashScreenActivity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activities.LoginActivity"></activity>
-        <activity android:name=".ui.activities.MainActivity" />
+        <activity android:name=".ui.activities.loginActivity.view.LoginActivity"></activity>
+        <activity android:name=".ui.activities.mainActivity.MainActivity" />
     </application>
 
 </manifest>
