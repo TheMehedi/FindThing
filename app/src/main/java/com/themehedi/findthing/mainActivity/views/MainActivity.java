@@ -1,4 +1,4 @@
-package com.themehedi.findthing.ui.activities.mainActivity;
+package com.themehedi.findthing.mainActivity.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,7 @@ import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnima
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 import com.themehedi.findthing.R;
-import com.themehedi.findthing.extension.adapters.SliderAdapter;
+import com.themehedi.findthing.mainActivity.adapters.SliderAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         sliderView = findViewById(R.id.imageSlider);
+
+
         adapter = new SliderAdapter(getApplicationContext());
         sliderView.setSliderAdapter(adapter);
         adapter.renewItems();

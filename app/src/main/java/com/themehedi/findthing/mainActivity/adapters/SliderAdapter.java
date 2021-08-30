@@ -1,4 +1,4 @@
-package com.themehedi.findthing.extension.adapters;
+package com.themehedi.findthing.mainActivity.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,9 +11,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 import com.themehedi.findthing.R;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class SliderAdapter extends
         SliderViewAdapter<SliderAdapter.SliderAdapterVH> {

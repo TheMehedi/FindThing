@@ -1,4 +1,4 @@
-package com.themehedi.findthing.ui.activities.loginActivity.model;
+package com.themehedi.findthing.loginActivity.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

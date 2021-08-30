@@ -1,4 +1,4 @@
-package com.themehedi.findthing.ui.activities.loginActivity.view;
+package com.themehedi.findthing.loginActivity.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,11 +11,13 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.themehedi.findthing.R;
-import com.themehedi.findthing.ui.activities.loginActivity.model.LoginDataModel;
-import com.themehedi.findthing.ui.activities.loginActivity.presenter.LoginPresenter;
-import com.themehedi.findthing.ui.activities.loginActivity.presenter.LoginPresenterInterface;
-import com.themehedi.findthing.ui.activities.mainActivity.MainActivity;
-import com.themehedi.findthing.ui.activities.registrationActivity.RegistrationActivity;
+import com.themehedi.findthing.loginActivity.models.LoginDataModel;
+import com.themehedi.findthing.loginActivity.presenters.LoginPresenter;
+import com.themehedi.findthing.loginActivity.presenters.LoginPresenterInterface;
+import com.themehedi.findthing.mainActivity.views.MainActivity;
+import com.themehedi.findthing.registrationActivity.RegistrationActivity;
+import com.themehedi.findthing.utils.AppPreferences;
+import com.themehedi.findthing.utils.StaticMethod;
 
 public class LoginActivity extends AppCompatActivity implements LoginPresenterInterface {
 
@@ -63,6 +65,8 @@ public class LoginActivity extends AppCompatActivity implements LoginPresenterIn
 
         if(data.getData().size()>0){
 
+            StaticMethod.preferences = new AppPreferences(LoginActivity.this);
+            StaticMethod.preferences.setLoginStatus(true);
             Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

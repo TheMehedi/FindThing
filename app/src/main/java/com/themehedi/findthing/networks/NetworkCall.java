@@ -1,8 +1,8 @@
-package com.themehedi.findthing.extension.net;
+package com.themehedi.findthing.networks;
 
 import android.util.Log;
 
-import com.themehedi.findthing.ui.activities.loginActivity.model.LoginDataModel;
+import com.themehedi.findthing.loginActivity.models.LoginDataModel;
 
 import retrofit2.Call;
 import retrofit2.Callback;

@@ -1,4 +1,4 @@
-package com.themehedi.findthing.ui.activities.splashScreenActivity;
+package com.themehedi.findthing.splashScreenActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,9 +7,9 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.themehedi.findthing.R;
-import com.themehedi.findthing.extension.services.AppPreferences;
-import com.themehedi.findthing.ui.activities.loginActivity.view.LoginActivity;
-import com.themehedi.findthing.ui.activities.mainActivity.MainActivity;
+import com.themehedi.findthing.utils.AppPreferences;
+import com.themehedi.findthing.loginActivity.views.LoginActivity;
+import com.themehedi.findthing.mainActivity.views.MainActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
 

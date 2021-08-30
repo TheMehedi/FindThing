@@ -1,6 +1,6 @@
-package com.themehedi.findthing.extension.net;
+package com.themehedi.findthing.networks;
 
-import com.themehedi.findthing.ui.activities.loginActivity.model.LoginDataModel;
+import com.themehedi.findthing.loginActivity.models.LoginDataModel;
 
 public interface ApiService {
 

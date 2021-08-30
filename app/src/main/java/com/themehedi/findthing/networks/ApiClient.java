@@ -1,4 +1,4 @@
-package com.themehedi.findthing.extension.net;
+package com.themehedi.findthing.networks;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

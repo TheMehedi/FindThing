@@ -1,9 +1,9 @@
-package com.themehedi.findthing.ui.activities.loginActivity.presenter;
+package com.themehedi.findthing.loginActivity.presenters;
 
 import android.content.Context;
 
-import com.themehedi.findthing.ui.activities.loginActivity.model.LogInModel;
-import com.themehedi.findthing.ui.activities.loginActivity.model.LoginDataModel;
+import com.themehedi.findthing.loginActivity.models.LogInModel;
+import com.themehedi.findthing.loginActivity.models.LoginDataModel;
 
 
 public class LoginPresenter implements LoginPresenterInterface {

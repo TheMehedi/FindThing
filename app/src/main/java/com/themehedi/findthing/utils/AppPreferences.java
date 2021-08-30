@@ -1,4 +1,4 @@
-package com.themehedi.findthing.extension.services;
+package com.themehedi.findthing.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

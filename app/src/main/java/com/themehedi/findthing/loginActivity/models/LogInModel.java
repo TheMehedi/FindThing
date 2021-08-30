@@ -1,10 +1,10 @@
-package com.themehedi.findthing.ui.activities.loginActivity.model;
+package com.themehedi.findthing.loginActivity.models;
 
 
-import com.themehedi.findthing.extension.net.ApiService;
-import com.themehedi.findthing.extension.net.NetworkCall;
-import com.themehedi.findthing.extension.net.ResponseCallback;
-import com.themehedi.findthing.ui.activities.loginActivity.presenter.LoginPresenterInterface;
+import com.themehedi.findthing.networks.ApiService;
+import com.themehedi.findthing.networks.NetworkCall;
+import com.themehedi.findthing.networks.ResponseCallback;
+import com.themehedi.findthing.loginActivity.presenters.LoginPresenterInterface;
 
 public class LogInModel {
 
