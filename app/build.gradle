@@ -4,6 +4,7 @@ plugins {
 
 
 def APP_BASE_URL = '"' + BASE_URL + '"' ?: '"Api key not found"'
+def APP_IMAGE_URL = '"' + BASE_IMAGE_URL + '"' ?: '"Api key not found"'
 def STRING = 'String'
 
 android {
@@ -21,6 +22,7 @@ android {
 
         each { type ->
             type.buildConfigField STRING, 'BASE_URL', APP_BASE_URL
+            type.buildConfigField STRING, 'BASE_IMAGE_URL', APP_IMAGE_URL
         }
     }
 
@@ -40,7 +42,7 @@ dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
 
     //image Slider
     implementation 'com.github.smarteist:autoimageslider:1.4.0'

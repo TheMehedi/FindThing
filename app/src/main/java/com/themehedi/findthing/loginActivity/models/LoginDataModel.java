@@ -18,24 +18,32 @@ public class LoginDataModel {
         this.data = data;
     }
 
-
     public class Datum {
 
         @SerializedName("id")
         @Expose
-        private Integer id;
+        private String id;
         @SerializedName("name")
         @Expose
         private String name;
         @SerializedName("email")
         @Expose
-        private Object email;
+        private String email;
         @SerializedName("phone")
         @Expose
         private String phone;
         @SerializedName("image")
         @Expose
-        private Object image;
+        private String image;
+        @SerializedName("division_id")
+        @Expose
+        private String divisionId;
+        @SerializedName("district_id")
+        @Expose
+        private String districtId;
+        @SerializedName("area_id")
+        @Expose
+        private String areaId;
         @SerializedName("division_name")
         @Expose
         private String divisionName;
@@ -49,11 +57,11 @@ public class LoginDataModel {
         @Expose
         private String createdAt;
 
-        public Integer getId() {
+        public String getId() {
             return id;
         }
 
-        public void setId(Integer id) {
+        public void setId(String id) {
             this.id = id;
         }
 
@@ -65,11 +73,11 @@ public class LoginDataModel {
             this.name = name;
         }
 
-        public Object getEmail() {
+        public String getEmail() {
             return email;
         }
 
-        public void setEmail(Object email) {
+        public void setEmail(String email) {
             this.email = email;
         }
 
@@ -81,12 +89,36 @@ public class LoginDataModel {
             this.phone = phone;
         }
 
-        public Object getImage() {
+        public String getImage() {
             return image;
         }
 
-        public void setImage(Object image) {
+        public void setImage(String image) {
             this.image = image;
+        }
+
+        public String getDivisionId() {
+            return divisionId;
+        }
+
+        public void setDivisionId(String divisionId) {
+            this.divisionId = divisionId;
+        }
+
+        public String getDistrictId() {
+            return districtId;
+        }
+
+        public void setDistrictId(String districtId) {
+            this.districtId = districtId;
+        }
+
+        public String getAreaId() {
+            return areaId;
+        }
+
+        public void setAreaId(String areaId) {
+            this.areaId = areaId;
         }
 
         public String getDivisionName() {

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FindThing</string>
+    <string name="profile">My Profile</string>
 </resources>
