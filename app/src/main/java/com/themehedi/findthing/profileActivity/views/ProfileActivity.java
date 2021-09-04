@@ -3,13 +3,16 @@ package com.themehedi.findthing.profileActivity.views;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.themehedi.findthing.BuildConfig;
 import com.themehedi.findthing.R;
+import com.themehedi.findthing.loginActivity.views.LoginActivity;
 import com.themehedi.findthing.mainActivity.views.MainActivity;
 import com.themehedi.findthing.utils.SessionManager;
 import com.themehedi.findthing.utils.StaticMethod;
@@ -42,6 +45,7 @@ public class ProfileActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
 
     }
 

@@ -32,31 +32,30 @@
         </LinearLayout>
 
 
-
     <EditText
         android:id="@+id/phoneNumberEditText"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="42dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/round_square"
         android:drawableStart="@drawable/phone"
-        android:hint="phone number"
-        android:inputType="phone"
-        android:textColor="@android:color/black"
         android:drawablePadding="8dp"
+        android:hint="Phone Number"
+        android:inputType="phone"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:textSize="18sp"
-        android:layout_below="@+id/linearLayout"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/round_square"/>
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="42dp"
         android:drawableStart="@drawable/lock"
-        android:hint="password"
+        android:hint="Password"
         android:inputType="textPassword"
         android:textColor="@android:color/black"
         android:drawablePadding="8dp"
@@ -66,23 +65,24 @@
         android:layout_marginTop="16dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/round_square"/>
+        android:background="@drawable/round_square"
+        android:textSize="16sp"/>
 
     <Button
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="42dp"
         android:layout_below="@+id/passwordEditText"
-        android:text="Login"
-        android:textAllCaps="false"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:layout_marginTop="24dp"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/btn_ractangle"/>
+        android:background="@drawable/btn_ractangle"
+        android:gravity="center"
+        android:text="Login"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
 
     <!--<TextView
         android:layout_width="wrap_content"

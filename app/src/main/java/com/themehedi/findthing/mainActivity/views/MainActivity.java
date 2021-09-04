@@ -1,7 +1,9 @@
 package com.themehedi.findthing.mainActivity.views;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,6 +17,7 @@ import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 import com.themehedi.findthing.BuildConfig;
 import com.themehedi.findthing.R;
+import com.themehedi.findthing.loginActivity.views.LoginActivity;
 import com.themehedi.findthing.mainActivity.adapters.SliderAdapter;
 import com.themehedi.findthing.profileActivity.views.ProfileActivity;
 import com.themehedi.findthing.utils.SessionManager;
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private CircleImageView profileImage;
     private TextView userName, userNumber;
     private LinearLayout linearLayout;
+    private LinearLayout logoutLinearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +60,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        logoutLinearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                alertView();
+            }
+        });
+
         adapter = new SliderAdapter(getApplicationContext());
         sliderView.setSliderAdapter(adapter);
         adapter.renewItems();
@@ -76,11 +89,35 @@ public class MainActivity extends AppCompatActivity {
         userName = findViewById(R.id.userName);
         userNumber = findViewById(R.id.userNumber);
         linearLayout = findViewById(R.id.linearLayout);
+        logoutLinearLayout = findViewById(R.id.logoutLinearLayout);
     }
 
     @Override
     public void onBackPressed() {
 
         finish();
+    }
+
+
+    private void alertView() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+        dialog.setTitle( "Logout" )
+                .setIcon(R.drawable.cover)
+                .setMessage("Are you sure you want to logout?")
+
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialoginterface, int i) {
+                        dialoginterface.cancel();
+                    }})
+
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialoginterface, int i) {
+
+                        SessionManager.setBooleanValue(StaticMethod.IS_LOGIN, false, MainActivity.this);
+                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                    }
+                }).show();
     }
 }
