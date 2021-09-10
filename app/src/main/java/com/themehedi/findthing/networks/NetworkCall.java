@@ -3,7 +3,10 @@ package com.themehedi.findthing.networks;
 import android.util.Log;
 
 import com.themehedi.findthing.loginActivity.models.LoginDataModel;
+import com.themehedi.findthing.mainActivity.models.datamodels.BannerDataModel;
+import com.themehedi.findthing.mainActivity.models.datamodels.DealsProductDataModel;
 import com.themehedi.findthing.registrationActivity.models.RegisterDataModel;
+import com.themehedi.findthing.wastageProductActivity.models.datamodels.WastageProductDataModel;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -47,7 +50,7 @@ public class NetworkCall implements ApiService{
         call.enqueue(new Callback<RegisterDataModel>() {
             @Override
             public void onResponse(Call<RegisterDataModel> call, Response<RegisterDataModel> response) {
-                if (response.code() == 200) {
+                if (response.code() == 201) {
                     responseCallback.onSuccess(response.body());
                 } else {
                     responseCallback.onError(response.message());
@@ -56,6 +59,73 @@ public class NetworkCall implements ApiService{
 
             @Override
             public void onFailure(Call<RegisterDataModel> call, Throwable t) {
+                responseCallback.onError(t.getMessage());
+            }
+        });
+    }
+
+    @Override
+    public void Banner(ResponseCallback<BannerDataModel> responseCallback) {
+
+
+        Call<BannerDataModel> call = apiInterface.banner();
+        call.enqueue(new Callback<BannerDataModel>() {
+            @Override
+            public void onResponse(Call<BannerDataModel> call, Response<BannerDataModel> response) {
+                if (response.code() == 200) {
+                    responseCallback.onSuccess(response.body());
+                } else {
+                    responseCallback.onError(response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BannerDataModel> call, Throwable t) {
+                responseCallback.onError(t.getMessage());
+            }
+        });
+    }
+
+    @Override
+    public void DealsProduct(ResponseCallback<DealsProductDataModel> responseCallback) {
+
+
+        Call<DealsProductDataModel> call = apiInterface.dealsProduct();
+        call.enqueue(new Callback<DealsProductDataModel>() {
+            @Override
+            public void onResponse(Call<DealsProductDataModel> call, Response<DealsProductDataModel> response) {
+                if (response.code() == 200) {
+                    responseCallback.onSuccess(response.body());
+                } else {
+                    responseCallback.onError(response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DealsProductDataModel> call, Throwable t) {
+                responseCallback.onError(t.getMessage());
+            }
+        });
+    }
+
+
+    @Override
+    public void Wastage(ResponseCallback<WastageProductDataModel> responseCallback) {
+
+
+        Call<WastageProductDataModel> call = apiInterface.wastageProduct();
+        call.enqueue(new Callback<WastageProductDataModel>() {
+            @Override
+            public void onResponse(Call<WastageProductDataModel> call, Response<WastageProductDataModel> response) {
+                if (response.code() == 200) {
+                    responseCallback.onSuccess(response.body());
+                } else {
+                    responseCallback.onError(response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<WastageProductDataModel> call, Throwable t) {
                 responseCallback.onError(t.getMessage());
             }
         });

@@ -13,6 +13,15 @@
         android:theme="@style/Theme.FindThing"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".viewDetailsActivity.views.ViewDetailsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".wastageProductActivity.views.WastageProductActivity"
+            android:exported="true" />
+        <activity
+            android:name=".dealsProductActivity.views.DealsProductActivity"
+            android:exported="true" />
+        <activity
             android:name=".profileActivity.views.ProfileActivity"
             android:exported="true" />
         <activity android:name=".registrationActivity.RegistrationActivity" />

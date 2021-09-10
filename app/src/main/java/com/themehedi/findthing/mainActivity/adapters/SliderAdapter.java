@@ -11,14 +11,19 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 import com.themehedi.findthing.R;
+import com.themehedi.findthing.mainActivity.models.datamodels.BannerDataModel;
+
+import java.util.List;
 
 public class SliderAdapter extends
         SliderViewAdapter<SliderAdapter.SliderAdapterVH> {
 
     private Context context;
+    private List<BannerDataModel.Datum> bannerDataModels;
 
-    public SliderAdapter(Context context) {
+    public SliderAdapter(Context context, List<BannerDataModel.Datum> bannerDataModels) {
         this.context = context;
+        this.bannerDataModels = bannerDataModels;
     }
 
     public void renewItems() {
@@ -48,22 +53,16 @@ public class SliderAdapter extends
         //String imageUrl = ApiClient.IMAGE_BASE_URL+"banner/jpg/"+bannerChildModel.getImage();
 
         Glide.with(viewHolder.itemView)
-                .load("").apply(new RequestOptions()
+                .load(bannerDataModels.get(position).getImage()).apply(new RequestOptions()
                 .error(R.drawable.promo_banner))
                 .into(viewHolder.imageViewBackground);
 
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "This is item in position " + position, Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override
     public int getCount() {
         //slider view count could be dynamic size
-        return 4;
+        return bannerDataModels.size();
     }
 
     static class SliderAdapterVH extends SliderViewAdapter.ViewHolder {

@@ -82,7 +82,7 @@ public class RegistrationActivity extends AppCompatActivity implements RegisterP
 
                 imageToString(bitmap);
 
-                registerPresenter.Register(name, email, phone, "1", "1", "1", passwords, stringImage);
+                registerPresenter.Register(name, email, phone, "2", "1", "1", passwords, stringImage);
 
             }
         });
