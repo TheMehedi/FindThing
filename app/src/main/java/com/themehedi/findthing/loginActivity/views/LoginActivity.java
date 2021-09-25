@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -107,6 +108,7 @@ public class LoginActivity extends AppCompatActivity implements LoginPresenterIn
     @Override
     public void onLoginError(String errMessage) {
 
+        Log.i("onLoginError ", errMessage);
         Toast.makeText(LoginActivity.this, "Please Input valid Data", Toast.LENGTH_SHORT).show();
     }
 

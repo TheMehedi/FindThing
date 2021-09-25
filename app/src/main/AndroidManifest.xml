@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
         android:icon="@mipmap/cover"
@@ -12,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FindThing"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".findPeopleActivity.views.FindPeopleActivity"
+            android:exported="true" />
         <activity
             android:name=".viewDetailsActivity.views.ViewDetailsActivity"
             android:exported="true" />
@@ -25,7 +29,8 @@
             android:name=".profileActivity.views.ProfileActivity"
             android:exported="true" />
         <activity android:name=".registrationActivity.RegistrationActivity" />
-        <activity android:name=".splashScreenActivity.SplashScreenActivity">
+        <activity android:name=".splashScreenActivity.SplashScreenActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,6 +39,10 @@
         </activity>
         <activity android:name=".loginActivity.views.LoginActivity" />
         <activity android:name=".mainActivity.views.MainActivity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
     </application>
 
 </manifest>

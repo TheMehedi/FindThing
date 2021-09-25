@@ -24,6 +24,7 @@ import com.smarteist.autoimageslider.SliderView;
 import com.themehedi.findthing.BuildConfig;
 import com.themehedi.findthing.R;
 import com.themehedi.findthing.dealsProductActivity.views.DealsProductActivity;
+import com.themehedi.findthing.findPeopleActivity.views.FindPeopleActivity;
 import com.themehedi.findthing.loginActivity.views.LoginActivity;
 import com.themehedi.findthing.mainActivity.adapters.RecyclerViewAdapter;
 import com.themehedi.findthing.mainActivity.adapters.SliderAdapter;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenterInte
     private MainPresenter mainPresenter;
     public static DealsProductDataModel dealsProductDataModel;
     private RecyclerView mainRecyclerView;
-    private CardView dealsProductCardView, wastageCardView;
+    private CardView dealsProductCardView, wastageCardView, findPeopleCardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +108,15 @@ public class MainActivity extends AppCompatActivity implements MainPresenterInte
             }
         });
 
+        findPeopleCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, FindPeopleActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -121,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenterInte
         mainRecyclerView = findViewById(R.id.mainRecyclerView);
         dealsProductCardView = findViewById(R.id.dealsProductCardView);
         wastageCardView = findViewById(R.id.wastageCardView);
+        findPeopleCardView = findViewById(R.id.findPeopleCardView);
 
         mainPresenter = new MainPresenter(MainActivity.this, this);
         mainRecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));

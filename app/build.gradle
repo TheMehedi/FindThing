@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 
@@ -8,13 +9,13 @@ def APP_IMAGE_URL = '"' + BASE_IMAGE_URL + '"' ?: '"Api key not found"'
 def STRING = 'String'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.themehedi.findthing"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
@@ -46,6 +47,10 @@ dependencies {
 
     //loading
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+    //google map
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+
 
     //image Slider
     implementation 'com.github.smarteist:autoimageslider:1.4.0'
