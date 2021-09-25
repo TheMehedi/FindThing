@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.themehedi.findthing">
+    package="com.themehedi.findthings">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,28 +15,28 @@
         android:theme="@style/Theme.FindThing"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".findPeopleActivity.views.FindPeopleActivity"
+            android:name="com.themehedi.findthings.findPeopleActivity.views.FindPeopleActivity"
             android:exported="true"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".viewDetailsActivity.views.ViewDetailsActivity"
+            android:name="com.themehedi.findthings.viewDetailsActivity.views.ViewDetailsActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".wastageProductActivity.views.WastageProductActivity"
+            android:name="com.themehedi.findthings.wastageProductActivity.views.WastageProductActivity"
             android:exported="true"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".dealsProductActivity.views.DealsProductActivity"
+            android:name="com.themehedi.findthings.dealsProductActivity.views.DealsProductActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".profileActivity.views.ProfileActivity"
+            android:name="com.themehedi.findthings.profileActivity.views.ProfileActivity"
             android:exported="true"
             android:screenOrientation="portrait"/>
-        <activity android:name=".registrationActivity.RegistrationActivity"
+        <activity android:name="com.themehedi.findthings.registrationActivity.RegistrationActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".splashScreenActivity.SplashScreenActivity"
+        <activity android:name="com.themehedi.findthings.splashScreenActivity.SplashScreenActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -45,9 +45,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".loginActivity.views.LoginActivity"
+        <activity android:name="com.themehedi.findthings.loginActivity.views.LoginActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".mainActivity.views.MainActivity"
+        <activity android:name="com.themehedi.findthings.mainActivity.views.MainActivity"
             android:screenOrientation="portrait" />
 
         <meta-data

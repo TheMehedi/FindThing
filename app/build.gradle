@@ -13,7 +13,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.themehedi.findthing"
+        applicationId "com.themehedi.findthings"
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 1
