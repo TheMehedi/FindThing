@@ -20,8 +20,8 @@ public class ApiClient {
 
     private static final OkHttpClient okHttpClient = new OkHttpClient.Builder()
             .connectTimeout(1000, TimeUnit.SECONDS)
-            .readTimeout(30, TimeUnit.SECONDS)
-            .writeTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(60, TimeUnit.SECONDS)
+            .writeTimeout(60, TimeUnit.SECONDS)
             .build();
 
     public static synchronized Retrofit getClient() {

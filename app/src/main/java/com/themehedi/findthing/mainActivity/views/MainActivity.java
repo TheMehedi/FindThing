@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenterInte
 
         Glide.with(MainActivity.this)
                 .load(BuildConfig.BASE_IMAGE_URL + SessionManager.getStringValue(StaticMethod.IMAGE, MainActivity.this))
-                .placeholder(R.drawable.cover)
+                .placeholder(R.drawable.profile)
                 .into(profileImage);
 
         userName.setText(SessionManager.getStringValue(StaticMethod.NAME, MainActivity.this));

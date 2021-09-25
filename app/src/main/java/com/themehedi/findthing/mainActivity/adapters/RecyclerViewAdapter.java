@@ -55,7 +55,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         Glide.with(context)
                 .load(datumList.get(position).getImage())
-                .placeholder(R.drawable.profile)
+                .placeholder(R.drawable.deals)
                 .into(viewHolder.productImage);
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {

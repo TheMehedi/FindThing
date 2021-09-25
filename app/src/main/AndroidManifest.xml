@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.themehedi.findthing">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -15,30 +16,39 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".findPeopleActivity.views.FindPeopleActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".viewDetailsActivity.views.ViewDetailsActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".wastageProductActivity.views.WastageProductActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".dealsProductActivity.views.DealsProductActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".profileActivity.views.ProfileActivity"
-            android:exported="true" />
-        <activity android:name=".registrationActivity.RegistrationActivity" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".registrationActivity.RegistrationActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".splashScreenActivity.SplashScreenActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".loginActivity.views.LoginActivity" />
-        <activity android:name=".mainActivity.views.MainActivity" />
+        <activity android:name=".loginActivity.views.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".mainActivity.views.MainActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

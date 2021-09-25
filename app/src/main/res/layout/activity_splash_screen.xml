@@ -13,13 +13,13 @@
     <ImageView
         android:layout_width="180dp"
         android:layout_height="180dp"
-        android:layout_marginTop="16dp"
         android:src="@drawable/cover"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="-16dp"
+        android:layout_marginBottom="16dp"
         android:text="Find Thing"
         android:textColor="@android:color/black"
         android:textSize="28sp"
