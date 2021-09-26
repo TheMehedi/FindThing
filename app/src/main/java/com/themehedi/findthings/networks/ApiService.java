@@ -1,5 +1,8 @@
 package com.themehedi.findthings.networks;
 
+import com.themehedi.findthings.datamodels.AreaDataModel;
+import com.themehedi.findthings.datamodels.DistrictDataModel;
+import com.themehedi.findthings.datamodels.DivisionDataModel;
 import com.themehedi.findthings.loginActivity.models.LoginDataModel;
 import com.themehedi.findthings.mainActivity.models.datamodels.BannerDataModel;
 import com.themehedi.findthings.mainActivity.models.datamodels.DealsProductDataModel;
@@ -17,4 +20,10 @@ public interface ApiService {
     void DealsProduct(ResponseCallback<DealsProductDataModel> dealsProductDataModelResponseCallback);
 
     void Wastage(ResponseCallback<WastageProductDataModel> wastageProductDataModelResponseCallback);
+
+    void Division(ResponseCallback<DivisionDataModel> divisionDataModelResponseCallback);
+
+    void District(ResponseCallback<DistrictDataModel> districtDataModelResponseCallback);
+
+    void Area(ResponseCallback<AreaDataModel> areaDataModelResponseCallback);
 }

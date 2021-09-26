@@ -3,6 +3,7 @@ package com.themehedi.findthings.findPeopleActivity.views;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -10,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -27,28 +29,41 @@ import com.google.android.libraries.places.api.Places;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.themehedi.findthings.BuildConfig;
 import com.themehedi.findthings.R;
+import com.themehedi.findthings.datamodels.AreaDataModel;
+import com.themehedi.findthings.datamodels.DistrictDataModel;
+import com.themehedi.findthings.datamodels.DivisionDataModel;
+import com.themehedi.findthings.findPeopleActivity.fragments.RequestPeopleFragment;
+import com.themehedi.findthings.findPeopleActivity.models.FindPeopleModel;
+import com.themehedi.findthings.findPeopleActivity.presenters.FindPresenter;
+import com.themehedi.findthings.findPeopleActivity.presenters.FindPresenterInterface;
+import com.themehedi.findthings.utils.CommonMethods;
 import com.themehedi.findthings.utils.SessionManager;
 import com.themehedi.findthings.utils.StaticMethod;
 
-public class FindPeopleActivity extends AppCompatActivity implements OnMapReadyCallback {
+import java.util.List;
+
+public class FindPeopleActivity extends AppCompatActivity implements FindPresenterInterface, OnMapReadyCallback {
 
     private GoogleMap mMap;
     private FusedLocationProviderClient fusedLocationClient;
     private FloatingActionButton myLocationBtn;
+    private FindPresenter findPresenter;
+    private CommonMethods commonMethods;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_people);
 
-        myLocationBtn = findViewById(R.id.myLocationBtn);
+        initViews();
 
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        openFragment(new RequestPeopleFragment());
 
-        if(!Places.isInitialized()){
+        /*if(!Places.isInitialized()){
 
             Places.initialize(getApplicationContext(), BuildConfig.MAPS_API_KEY);
-        }
+        }*/
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -62,6 +77,17 @@ public class FindPeopleActivity extends AppCompatActivity implements OnMapReadyC
                 getMyLocationData();
             }
         });
+    }
+
+    private void initViews() {
+
+        myLocationBtn = findViewById(R.id.myLocationBtn);
+
+        findPresenter = new FindPresenter(FindPeopleActivity.this, this);
+        commonMethods = new CommonMethods(FindPeopleActivity.this);
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
     }
 
     private boolean requestLocationPermission() {
@@ -93,18 +119,28 @@ public class FindPeopleActivity extends AppCompatActivity implements OnMapReadyC
         mMap = googleMap;
 
         if (requestLocationPermission()){
-            myLocationBtn.setVisibility(View.VISIBLE);
-            getMyLocationData();
+
+            if(commonMethods.isOnline()){
+
+                findPresenter.Division();
+            }
+            else {
+
+                Toast.makeText(getApplicationContext(), "Please enable a stable internet!", Toast.LENGTH_SHORT).show();
+            }
+
+            /*myLocationBtn.setVisibility(View.VISIBLE);
+            getMyLocationData();*/
         }
         else {
 
             myLocationBtn.setVisibility(View.GONE);
 
-            LatLng defaultLocation = new LatLng(23.802563562596756, 90.40970039543369);
+            /*LatLng defaultLocation = new LatLng(23.802563562596756, 90.40970039543369);
             CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(defaultLocation, 7);
             mMap.clear();
             mMap.moveCamera(CameraUpdateFactory.newLatLng(defaultLocation));
-            mMap.animateCamera(cameraUpdate);
+            mMap.animateCamera(cameraUpdate);*/
         }
 
     }
@@ -132,12 +168,10 @@ public class FindPeopleActivity extends AppCompatActivity implements OnMapReadyC
                             mMap.animateCamera(cameraUpdate);*/
 
                             BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.marker);
-
                             MarkerOptions markerOptions = new MarkerOptions();
                             markerOptions.position(myLocation);
                             markerOptions.title(SessionManager.getStringValue(StaticMethod.NAME, FindPeopleActivity.this)); //Here Total Address is address which you want to show on marker
                             markerOptions.icon(icon);
-
                             //markerOptions.getPosition();
                             mMap.addMarker(markerOptions).showInfoWindow();
                             //marker.showInfoWindow();
@@ -149,19 +183,23 @@ public class FindPeopleActivity extends AppCompatActivity implements OnMapReadyC
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                                           int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if(requestCode==1) {
 
-            if (grantResults.length > 0 &&
-                    grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Permission is granted. Continue the action or workflow
                 // in your app.
 
-                myLocationBtn.setVisibility(View.VISIBLE);
-                getMyLocationData();
+                if(commonMethods.isOnline()){
+
+                    findPresenter.Division();
+                }
+                else {
+
+                    Toast.makeText(getApplicationContext(), "Please enable a stable internet!", Toast.LENGTH_SHORT).show();
+                }
 
             } else {
                 // Explain to the user that the feature is unavailable because
@@ -169,8 +207,65 @@ public class FindPeopleActivity extends AppCompatActivity implements OnMapReadyC
                 // At the same time, respect the user's decision. Don't link to
                 // system settings in an effort to convince the user to change
                 // their decision.
+
+                Toast.makeText(getApplicationContext(), "You have to enable location to use this service!", Toast.LENGTH_SHORT).show();
+                onBackPressed();
             }
 
         }
+    }
+
+    private void openFragment(Fragment fragment){
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.mainContainer, fragment)
+                .commit();
+    }
+
+    @Override
+    public void onDivisionResponse(DivisionDataModel divisionDataModel) {
+
+        StaticMethod.divisionDataList.addAll(divisionDataModel.getData());
+
+        findPresenter.District();
+    }
+
+    @Override
+    public void onDivisionError(String errMessage) {
+
+        Toast.makeText(getApplicationContext(), errMessage, Toast.LENGTH_SHORT).show();
+        onBackPressed();
+    }
+
+    @Override
+    public void onDistrictResponse(DistrictDataModel districtDataModel) {
+
+        StaticMethod.districtDataList.addAll(districtDataModel.getData());
+
+        findPresenter.Area();
+    }
+
+    @Override
+    public void onDistrictError(String errMessage) {
+
+        Toast.makeText(getApplicationContext(), errMessage, Toast.LENGTH_SHORT).show();
+        onBackPressed();
+    }
+
+    @Override
+    public void onAreaResponse(AreaDataModel areaDataModel) {
+
+        StaticMethod.areaDataList.addAll(areaDataModel.getData());
+
+        myLocationBtn.setVisibility(View.VISIBLE);
+        getMyLocationData();
+    }
+
+    @Override
+    public void onAreaError(String errMessage) {
+
+        Toast.makeText(getApplicationContext(), errMessage, Toast.LENGTH_SHORT).show();
+        onBackPressed();
     }
 }
