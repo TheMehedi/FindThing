@@ -1,5 +1,8 @@
 package com.themehedi.findthings.networks;
 
+import com.themehedi.findthings.datamodels.AreaDataModel;
+import com.themehedi.findthings.datamodels.DistrictDataModel;
+import com.themehedi.findthings.datamodels.DivisionDataModel;
 import com.themehedi.findthings.loginActivity.models.LoginDataModel;
 import com.themehedi.findthings.mainActivity.models.datamodels.BannerDataModel;
 import com.themehedi.findthings.mainActivity.models.datamodels.DealsProductDataModel;
@@ -31,4 +34,13 @@ public interface ApiInterface {
 
     @GET("get/wastage/product/list")
     Call<WastageProductDataModel> wastageProduct();
+
+    @GET("get/division")
+    Call<DivisionDataModel> division();
+
+    @GET("get/district")
+    Call<DistrictDataModel> district();
+
+    @GET("get/area")
+    Call<AreaDataModel> area();
 }

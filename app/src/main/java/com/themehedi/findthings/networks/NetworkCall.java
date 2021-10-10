@@ -2,6 +2,9 @@ package com.themehedi.findthings.networks;
 
 import android.util.Log;
 
+import com.themehedi.findthings.datamodels.AreaDataModel;
+import com.themehedi.findthings.datamodels.DistrictDataModel;
+import com.themehedi.findthings.datamodels.DivisionDataModel;
 import com.themehedi.findthings.loginActivity.models.LoginDataModel;
 import com.themehedi.findthings.mainActivity.models.datamodels.BannerDataModel;
 import com.themehedi.findthings.mainActivity.models.datamodels.DealsProductDataModel;
@@ -112,7 +115,6 @@ public class NetworkCall implements ApiService{
     @Override
     public void Wastage(ResponseCallback<WastageProductDataModel> responseCallback) {
 
-
         Call<WastageProductDataModel> call = apiInterface.wastageProduct();
         call.enqueue(new Callback<WastageProductDataModel>() {
             @Override
@@ -127,6 +129,69 @@ public class NetworkCall implements ApiService{
             @Override
             public void onFailure(Call<WastageProductDataModel> call, Throwable t) {
                 responseCallback.onError(t.getMessage());
+            }
+        });
+    }
+
+    @Override
+    public void Division(ResponseCallback<DivisionDataModel> divisionDataModelResponseCallback) {
+
+        Call<DivisionDataModel> call = apiInterface.division();
+        call.enqueue(new Callback<DivisionDataModel>() {
+            @Override
+            public void onResponse(Call<DivisionDataModel> call, Response<DivisionDataModel> response) {
+                if (response.code() == 200) {
+                    divisionDataModelResponseCallback.onSuccess(response.body());
+                } else {
+                    divisionDataModelResponseCallback.onError(response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DivisionDataModel> call, Throwable t) {
+                divisionDataModelResponseCallback.onError(t.getMessage());
+            }
+        });
+    }
+
+    @Override
+    public void District(ResponseCallback<DistrictDataModel> districtDataModelResponseCallback) {
+
+        Call<DistrictDataModel> call = apiInterface.district();
+        call.enqueue(new Callback<DistrictDataModel>() {
+            @Override
+            public void onResponse(Call<DistrictDataModel> call, Response<DistrictDataModel> response) {
+                if (response.code() == 200) {
+                    districtDataModelResponseCallback.onSuccess(response.body());
+                } else {
+                    districtDataModelResponseCallback.onError(response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DistrictDataModel> call, Throwable t) {
+                districtDataModelResponseCallback.onError(t.getMessage());
+            }
+        });
+    }
+
+    @Override
+    public void Area(ResponseCallback<AreaDataModel> areaDataModelResponseCallback) {
+
+        Call<AreaDataModel> call = apiInterface.area();
+        call.enqueue(new Callback<AreaDataModel>() {
+            @Override
+            public void onResponse(Call<AreaDataModel> call, Response<AreaDataModel> response) {
+                if (response.code() == 200) {
+                    areaDataModelResponseCallback.onSuccess(response.body());
+                } else {
+                    areaDataModelResponseCallback.onError(response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AreaDataModel> call, Throwable t) {
+                areaDataModelResponseCallback.onError(t.getMessage());
             }
         });
     }
